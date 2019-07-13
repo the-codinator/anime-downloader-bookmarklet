@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Horriblesubs.info quick download bookmarklet</title>
+</head>
+<body>
+  <div>
+  <p>
+  Drag the link below to you bookmarks.<br />
+  Open the Anime page on <a href="https://horriblesubs.info/shows/">HorribleSubs</a> and click the bookmarklet.<br />
+  Ensure that your browser is set to (automatically) forward magnet links to your torrent client.<br />
+  Tested with <a href="https://www.utorrent.com/downloads">µTorrent</a><br />
+  </p>
+  </div>
+  <div>
+    <a href="javascript:(function()%7Bif (typeof quality %3D%3D%3D 'undefined') %7Bquality %3D '1080p'%3B%7Dfunction getAllEpisodes() %7Breturn Array.from(document.querySelectorAll('.rls-info-container'))%3B    %2F* Return all episode divs (as Array) *%2F%7Dfunction showMore() %7Bvar moreButton %3D document.querySelector('.more-button')%3Bif (moreButton) %7BmoreButton.click()%3B         %2F* Load more results *%2F%7Dreturn moreButton%3B%7Dfunction loadAllResults(handler) %7Bif (showMore()) %7BsetTimeout(function () %7BloadAllResults(handler)%3B%7D%2C 3000)%3B%7D else %7Bhandler()%3B%7D%7Dfunction getMagnets() %7Breturn getAllEpisodes()                                     %2F* Get all episodes (as Array) *%2F.map(x %3D> x.querySelector('.link-' %2B quality))      %2F* Get specified quality div *%2F.map(x %3D> x.querySelector('.hs-magnet-link'))       %2F* Get magnet link span *%2F.map(x %3D> x.querySelector('a'))                     %2F* Get link element *%2F.map(x %3D> x.href)                                   %2F* Get href *%2F%7Dfunction openAll(pages) %7Bif (pages %26%26 pages instanceof Array) %7BslowPageOpener(pages%2C 0)%2F*pages.forEach(function (page) %7Bwindow.open(page%2C '_blank')%3B%7D)%3B*%2F%7D else %7Bconsole.error('No pages found to open')%3Bconsole.log(pages)%3B%7D%7Dfunction slowPageOpener(pages%2C i) %7Bif (i < 0 %7C%7C i > pages.length) %7Bconsole.log('Downloader Complete')%3Breturn%3B%7Dwindow.setTimeout(function() %7Bwindow.open(pages%5Bi%5D%2C '_blank')%3BslowPageOpener(pages%2C i %2B 1)%3B%7D%2C 666)%7DloadAllResults(function () %7Bvar magnetLinks %3D getMagnets()%3Bconsole.log('Episode Count %3D ' %2B magnetLinks.length)%3BopenAll(magnetLinks)%3B%7D)%7D)()">
+    <b>HorribleSubs downloader</b>
+    </a>
+  </div>
+</body>
+</html>
