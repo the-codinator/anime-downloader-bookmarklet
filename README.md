@@ -2,13 +2,14 @@
 Horriblesubs quick downloader bookmarklet
 
 ## Bookmarklet
-Find it [here](https://the-codinator.github.io/horriblesubsbookmarklet/index.html)
+Hosted [here](https://the-codinator.github.io/horriblesubsbookmarklet/index.html)
 
 ## Raw Script
-See [script.js](script.js)
-You can create the bookmarklet manually or by using some online tools like [this](https://mrcoles.com/bookmarklet/)
+See [script.js](script.js). You can create the bookmarklet manually or by using some online tools like [this](https://mrcoles.com/bookmarklet/)
 
 ## Customizable Parameters
+
+Directly set values for the following variables in the browser console
 
 - hsQuality = '480p' | '720p' | '1080p' (default)
 - hsStart = smallest episode number to include (default = 1)
