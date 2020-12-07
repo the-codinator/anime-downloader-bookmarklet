@@ -1,17 +1,22 @@
-# horriblesubsbookmarklet
-Horriblesubs quick downloader bookmarklet
+# anime-downloader-bookmarklet
+
+Quick downloader bookmarklet for popular anime torrenting sites
 
 ## Bookmarklet
-Hosted [here](https://the-codinator.github.io/horriblesubsbookmarklet/index.html)
+
+Hosted [here](https://the-codinator.github.io/anime-downloader-bookmarklet/index.html)
 
 ## Raw Script
-See [script.js](script.js). You can create the bookmarklet manually or by using some online tools like [this](https://mrcoles.com/bookmarklet/)
+
+See [scripts](scripts/) folder for JS code to quick download from various sites. `core.js` is the common code required by all downloaders.
+
+You can create the bookmarklet manually or by using some online tools like [this](https://mrcoles.com/bookmarklet/)
 
 ## Customizable Parameters
 
 Directly set values for the following variables in the browser console
 
-- hsQuality = '480p' | '720p' | '1080p' (default)
-- hsStart = smallest episode number to include (default = 1)
-- hsEnd = biggest episode number to include (default = -1 (latest))
-- hsDebug = enable debug logging (default = false)
+- xQuality = '480p' | '720p' | '1080p' (default)
+- xStart = smallest episode number to include (default = 1)
+- xEnd = biggest episode number to include (default = -1 (latest))
+- xDebug = enable debug logging (default = false)
