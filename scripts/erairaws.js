@@ -10,9 +10,9 @@ function erairaws() {
   }
 
   function loadAllEpisodes(callback) {
-    const recursive = setInterval(() => {
+    const recursive = window.setInterval(() => {
       if (!triggerShowMore()) {
-        clearInterval(recursive);
+        window.clearInterval(recursive);
         debugLog('Loaded all episodes');
         callback();
       }
@@ -28,11 +28,11 @@ function erairaws() {
         const div = Array.from(releaseLinks).find(a => a.querySelector('i').innerText.includes(xQuality));
         const links = div.querySelectorAll('a');
         const href = Array.from(links).find(a => a.href.includes('magnet')).href;
-        return { episode, href };
+        return {episode, href};
       });
     data.sort((a, b) => a.episode - b.episode);                   /* Fix the order (coz its usually descending order) */
     debugLog('Loaded all magnet hrefs', data);
-    
+
     if (xStart === 0 && xEnd === -1) {
       debugLog('No custom start/end, returning all magnet hrefs');
       return data.map(x => x.href);
@@ -47,7 +47,7 @@ function erairaws() {
     debugLog('Opening magnets', magnets);
     if (magnets && magnets instanceof Array && magnets.length > 0) {
       infoLog(`Episode Count: ${magnets.length}`);
-      slowPageOpener(magnets)
+      slowPageOpener(magnets);
     } else {
       infoLog('Magnets value', magnets);
       throw Error('No magnets found to open');

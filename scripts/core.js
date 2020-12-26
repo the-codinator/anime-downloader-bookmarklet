@@ -1,4 +1,4 @@
-/*
+/**
  * Available params
  * xQuality = '480p' | '720p' | '1080p' (default)
  * xStart = smallest episode number to include (default = 1)
@@ -18,7 +18,7 @@ const SLOW_OPEN_DELAY = 666;
 const debugLog = (msg, arg) => xDebug ? infoLog(msg, arg) : '';
 const infoLog = (msg, arg) => {
   const fullMsg = `[Codi] [${Date.now() - startTs}] ${msg}`;
-  if (arg) {
+  if (typeof arg !== 'undefined') {
     console.log(fullMsg, arg);
   } else {
     console.log(fullMsg);
@@ -29,12 +29,13 @@ infoLog('Script init', {startTs, xDebug, xQuality, xStart, xEnd});
 
 /* Some browsers block opening a huge number of tabs in quick succession */
 function slowPageOpener(magnets) {
+  debugLog('Starting slowPageOpener. Count:', magnets.length);
   let i = 0;
   const recursive = window.setInterval(() => {
     window.open(magnets[i++], '_blank');
     if (i >= magnets.length) {
-      clearInterval(recursive);
-      infoLog('Script complete');
+      window.clearInterval(recursive);
+      infoLog('Script complete!');
     }
   }, SLOW_OPEN_DELAY);
 }
